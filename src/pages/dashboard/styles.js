@@ -1,3 +1,4 @@
+import { hover } from "@testing-library/user-event/dist/hover";
 import styled from "styled-components";
 export const Header = styled.header`
 width: 100vw;
@@ -43,7 +44,7 @@ width: 100vw;
 border:1px solid  #212529;
 display:flex;
 justify-content: center;
-gap:470px;
+gap:460px;
 align-items: center;
 @media (max-width: 480px) {
   width: 450px;
@@ -82,8 +83,8 @@ align-items:center ;
 `;
 export const ListContentBox = styled.ul`
   padding-top:25px;
-  width: 840px;
-  height: 406px;
+  width: 850px;
+height: 416px;
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -122,7 +123,7 @@ border-radius: 4px;
   }
 `
 export const Techs = styled.div`
-  width: 835px;
+width: 850px;
   height: 45px;
   display: flex;
   justify-content: space-between;
@@ -158,15 +159,21 @@ top: 223px;
 
 
 export const ListCard = styled.li`
+
   margin-left: 30px;
-  width: 752px;
-  height: 60px;
+  width: 792px;
+height: 49px;
   display: flex;
   background: #121214;
   border-radius: 4px;
   justify-content: space-between;
   padding:20px;
   align-items: center;
+  &:hover
+{
+  background: #343B41;
+border-radius: 4px
+}
 
   h2 {
     font-family: "Inter";
@@ -181,6 +188,9 @@ export const ListCard = styled.li`
 width:380px;
   }
 `;
+
+
+
 export const CardRightSide = styled.div`
 
 display:flex ;

@@ -7,7 +7,7 @@ import * as yup from "yup";
 import { ModalForm } from "./styles";
 import { ModalBoxHeader,ModalBoxContent } from "./styles";
 import { ModalBox } from "./styles";
-import X from "../../X.svg";
+import X from "../../assets/X.svg";
 
 function AddModalTech(props) {
   const schemaAdd = yup.object().shape({
@@ -49,7 +49,7 @@ function AddModalTech(props) {
       .then((response) => {
         toast.success("Tecnologia adicionada com sucesso!");
         props.handleModal();
-        window.location.reload();
+      
       })
       .catch((error) => {
         if (error.response.status === 401) {

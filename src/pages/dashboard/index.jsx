@@ -1,4 +1,4 @@
-import Logo from "../../Logo.svg";
+import Logo from "../../assets/Logo.svg";
 import "./styles";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -17,31 +17,32 @@ import {
   Header,
 } from "./styles";
 import { AuthContext } from "../../contexts/userContexts";
-import Buttonplus from "../../ButtonPlus.svg";
+import Buttonplus from "../../assets/ButtonPlus.svg";
 import api from "../../services/api";
 
 function Dashboard() {
   const navigate = useNavigate();
-  const { loading, userInfo } = useContext(AuthContext);
+  const { loading, userInfo, setUserInfo } = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
   function handleModal() {
     setShowModal(!showModal);
   }
 
   const handleDelete = (id) => {
-    api.delete("/users/techs/" + id, {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("@TOKEN"),
-      },
-    })
-    .then(()=>{
-      window.location.reload();
-    })
-    
+    api
+      .delete("/users/techs/" + id, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("@TOKEN"),
+        },
+      })
+      .then(() => {
+        window.location.reload();
+      });
   };
 
   const Logout = () => {
     window.localStorage.clear();
+    setUserInfo([])
     setTimeout(() => {
       navigate("/login");
     }, 1000);

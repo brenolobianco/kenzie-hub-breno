@@ -35,7 +35,7 @@ const Providers = ({ children }) => {
 
       loadUser();
     }
-  }, []);
+  }, [userInfo]);
 
   const login = (user) => {
     api
@@ -45,15 +45,16 @@ const Providers = ({ children }) => {
         window.localStorage.setItem("@TOKEN", res.data.token);
         window.localStorage.setItem("@USERID", res.data.user.id);
         toast("Login realizado com sucesso!");
-
-        navigate("/dashboard");
-      })
-      .then(() => {
-        window.location.reload();
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 2000);
+       
+        setUserInfo(res.data);
       })
 
       .catch(() => toast("Ops,algo deu errado!"));
   };
+
   const registerUser = (data) => {
     api
       .post("https://kenziehub.herokuapp.com/users", data)

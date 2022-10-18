@@ -1,4 +1,4 @@
-import Logo from "../../Logo.svg";
+import Logo from "../../assets/Logo.svg";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
