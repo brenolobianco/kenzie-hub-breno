@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { Form } from "./styles";
 import { BackButton } from "./styles";
 import Logo from "../../assets/Logo.svg";
-import { RegisterBox } from "./styles";
+import { RegisterBox, FormLogo } from "./styles";
 import { RegisterButton } from "./styles";
 import { ToastContainer, toast } from "react-toastify";
 import { useContext } from "react";
-import { AuthContext } from '../../contexts/userContexts';
+import { AuthContext } from "../../contexts/userContexts";
 import "react-toastify/dist/ReactToastify.css";
 
 function Register() {
@@ -49,9 +49,10 @@ function Register() {
   return (
     <RegisterBox>
       <ToastContainer />
-
-      <img src={Logo} alt="Logo" />
-      <BackButton onClick={backButton}>Voltar</BackButton>
+      <FormLogo>
+        <img src={Logo} alt="Logo" />
+        <BackButton onClick={backButton}>Voltar</BackButton>
+      </FormLogo>
 
       <Form onSubmit={handleSubmit(registerUser)}>
         <h2>Crie sua conta</h2>
